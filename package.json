@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzcwoshizz/dev.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "zhichao.zhang <zzcwoshizz@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzcwoshizz/dev/issues"
+  },
+  "homepage": "https://github.com/zzcwoshizz/dev#readme",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

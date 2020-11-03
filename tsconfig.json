@@ -1,0 +1,12 @@
+{
+  "extends": "./packages/config/lib/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+    },
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  }
+}
