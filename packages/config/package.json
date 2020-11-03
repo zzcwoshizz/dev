@@ -3,7 +3,20 @@
   "version": "0.0.0",
   "description": "My base config",
   "author": "Zhichao Zhang <zzcwoshizz@163.com>",
-  "homepage": ".",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzcwoshizz/dev.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/zzcwoshizz/dev/issues"
+  },
+  "homepage": "https://github.com/zzcwoshizz/dev#readme",
   "license": "MIT",
   "main": "lib/babel.js",
   "directories": {
