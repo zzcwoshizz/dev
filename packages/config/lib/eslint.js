@@ -14,7 +14,7 @@ module.exports = {
     },
     'import/core-modules': ['styled-jsx/css'],
   },
-  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort', 'react-hooks'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -49,4 +49,14 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/named': 'off',
   },
+  settings: {
+    'import/extensions': ['.js', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': require.resolve('eslint-import-resolver-node'),
+    react: {
+      version: 'detect'
+    }
+  }
 };

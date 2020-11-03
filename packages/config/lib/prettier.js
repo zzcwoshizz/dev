@@ -1,6 +1,6 @@
 module.exports = {
   parser: 'babel-ts',
-  semi: false,
+  semi: true,
   tabWidth: 2,
   printWidth: 100,
   singleQuote: true,
