@@ -5,14 +5,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-    'import/core-modules': ['styled-jsx/css'],
+      jsx: true
+    }
   },
   plugins: ['@typescript-eslint', 'prettier', 'simple-import-sort', 'react-hooks'],
   extends: [
@@ -23,13 +17,13 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:jsx-a11y/recommended',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint'
   ],
   env: {
     es6: true,
     browser: true,
     jest: true,
-    node: true,
+    node: true
   },
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
@@ -48,6 +42,39 @@ module.exports = {
     'react/display-name': 'off',
     'import/no-unresolved': 'off',
     'import/named': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+      { blankLine: 'always', prev: '*', next: 'block-like' },
+      { blankLine: 'always', prev: 'block-like', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'function' },
+      { blankLine: 'always', prev: 'function', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'try' },
+      { blankLine: 'always', prev: 'try', next: '*' },
+      { blankLine: 'always', prev: '*', next: 'return' }
+    ],
+    'react/jsx-max-props-per-line': [
+      2,
+      {
+        maximum: 1,
+        when: 'always'
+      }
+    ],
+    'react/jsx-sort-props': [
+      2,
+      {
+        noSortAlphabetically: false
+      }
+    ],
+    'sort-destructure-keys/sort-destructure-keys': [
+      2,
+      {
+        caseSensitive: true
+      }
+    ]
   },
   settings: {
     'import/extensions': ['.js', '.ts', '.tsx'],
@@ -55,6 +82,7 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx']
     },
     'import/resolver': require.resolve('eslint-import-resolver-node'),
+    'import/core-modules': ['styled-jsx/css'],
     react: {
       version: 'detect'
     }

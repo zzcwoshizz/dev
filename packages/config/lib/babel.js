@@ -3,9 +3,7 @@ function resolver(input) {
     ? input
         .filter((plugin) => !!plugin)
         .map((plugin) =>
-          Array.isArray(plugin)
-            ? [require.resolve(plugin[0]), plugin[1]]
-            : require.resolve(plugin)
+          Array.isArray(plugin) ? [require.resolve(plugin[0]), plugin[1]] : require.resolve(plugin)
         )
     : require.resolve(input);
 }
@@ -15,11 +13,11 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        modules: 'commonjs',
-      },
+        modules: 'commonjs'
+      }
     ],
     '@babel/preset-typescript',
-    ['@babel/preset-react', { runtime: 'automatic' }],
+    ['@babel/preset-react', { runtime: 'automatic' }]
   ]),
   plugins: resolver([
     // ordering important, decorators before class properties
@@ -36,6 +34,6 @@ module.exports = {
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-syntax-top-level-await',
-    'babel-plugin-styled-components',
-  ]),
+    'babel-plugin-styled-components'
+  ])
 };
