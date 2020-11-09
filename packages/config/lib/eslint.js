@@ -56,23 +56,10 @@ module.exports = {
       { blankLine: 'always', prev: 'try', next: '*' },
       { blankLine: 'always', prev: '*', next: 'return' }
     ],
-    'react/jsx-max-props-per-line': [
-      2,
-      {
-        maximum: 1,
-        when: 'always'
-      }
-    ],
     'react/jsx-sort-props': [
       2,
       {
         noSortAlphabetically: false
-      }
-    ],
-    'sort-destructure-keys/sort-destructure-keys': [
-      2,
-      {
-        caseSensitive: true
       }
     ]
   },
