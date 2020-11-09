@@ -1,6 +1,6 @@
 {
   "name": "@zzcwoshizz/config",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "My base config",
   "author": "Zhichao Zhang <zzcwoshizz@163.com>",
   "publishConfig": {
