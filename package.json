@@ -1,9 +1,10 @@
 {
-  "name": "root",
+  "name": "zzcwoshizz",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zzcwoshizz/dev.git"
@@ -16,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/zzcwoshizz/dev/issues"
   },
-  "homepage": "https://github.com/zzcwoshizz/dev#readme",
-  "devDependencies": {
-    "lerna": "^3.22.1"
-  }
+  "homepage": "https://github.com/zzcwoshizz/dev#readme"
 }
