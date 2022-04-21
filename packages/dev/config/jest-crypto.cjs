@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 
-function getRandomValues(arr) {
+function getRandomValues (arr) {
   const bytes = crypto.randomBytes(arr.length);
 
   for (let i = 0; i < arr.length; i++) {

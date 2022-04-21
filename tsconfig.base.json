@@ -1,0 +1,10 @@
+{
+  "extends": "@zzcwoshizz/dev/config/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "paths": {
+      "@zzcwoshizz/dev/*": ["dev/src/*"]
+    },
+    "skipLibCheck": true
+  }
+}

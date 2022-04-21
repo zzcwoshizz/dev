@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// [object Object]
+// SPDX-License-Identifier: Apache-2.0
 
 import { __dirname } from './dirname.mjs';
 import execSync from './execSync.mjs';

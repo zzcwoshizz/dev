@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import yargs from 'yargs';
 
 import { __dirname } from './dirname.mjs';
@@ -18,17 +17,18 @@ const argv = yargs(process.argv.slice(2))
       type: 'boolean'
     }
   })
-  .strict().argv;
+  .strict()
+  .argv;
 
 if (!argv['skip-eslint']) {
   // We don't want to run with fix on CI
-  const extra = process.env.GITHUB_REPOSITORY ? '' : '--fix';
+  const extra = process.env.GITHUB_REPOSITORY
+    ? ''
+    : '--fix';
 
-  execSync(
-    `yarn z-exec-eslint ${extra} --resolve-plugins-relative-to ${__dirname} --ext .js,.cjs,.mjs,.ts,.tsx ${process.cwd()}`
-  );
+  execSync(`yarn z-exec-eslint ${extra} --resolve-plugins-relative-to ${__dirname} --ext .js,.cjs,.mjs,.ts,.tsx ${process.cwd()}`);
 }
 
 if (!argv['skip-tsc']) {
-  execSync('yarn z-exec-tsc --noEmit --emitDeclarationOnly false --pretty');
+  execSync('yarn z-exec-tsc --noEmit --emitDeclarationOnly false --pretty --project tsconfig.build.json');
 }

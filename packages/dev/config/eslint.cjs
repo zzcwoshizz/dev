@@ -78,7 +78,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'default-param-last': [0], // conflicts with TS version (this one doesn't allow TS ?)
     'header/header': 'off',
-    'import-newlines/enforce': ['error', 2048],
+    'import-newlines/enforce': 'off',
     'multiline-ternary': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',

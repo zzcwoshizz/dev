@@ -1,21 +1,28 @@
 {
-  "name": "zzcwoshizz",
+  "license": "Apache-2.0",
+  "packageManager": "yarn@3.2.0",
   "private": true,
+  "sideEffects": false,
+  "type": "commonjs",
   "workspaces": [
     "packages/*"
   ],
-  "version": "0.2.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zzcwoshizz/dev.git"
+  "scripts": {
+    "build": "z-dev-build-ts",
+    "build:extra": "(cd packages/dev && copyfiles config/* scripts/* build)",
+    "build:release": "z-ci-ghact-build --skip-beta",
+    "clean": "z-dev-clean-build",
+    "lint": "z-dev-run-lint",
+    "postinstall": "./packages/dev/scripts/z-dev-yarn-only.mjs",
+    "prettier": "./packages/dev/scripts/z-dev-run-prettier.mjs",
+    "test": "yarn build && yarn test:esm && z-dev-run-test --coverage",
+    "test:esm": "node ./tester.cjs && node ./tester.mjs"
   },
-  "keywords": [
-    "react"
-  ],
-  "author": "zhichao.zhang <zzcwoshizz@163.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zzcwoshizz/dev/issues"
+  "devDependencies": {
+    "@zzcwoshizz/dev": "workspace:packages/dev",
+    "copyfiles": "^2.4.1"
   },
-  "homepage": "https://github.com/zzcwoshizz/dev#readme"
+  "resolutions": {
+    "typescript": "^4.5.5"
+  }
 }

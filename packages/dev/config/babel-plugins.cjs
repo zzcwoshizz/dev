@@ -6,7 +6,10 @@ module.exports = function (isEsm, withExt) {
   // 2. Under Jest the conversion of paths leads to issues since the require would be from e.g.
   // 'index.js', but while executing only the 'index.ts' file would be available
   //  3. In the case of esm we always need the explicit extension here
-  const rewriteExt = !process.env.JEST_WORKER_ID && withExt && (isEsm || EXT_CJS !== '.js');
+  const rewriteExt = !process.env.JEST_WORKER_ID && withExt && (
+    isEsm ||
+    EXT_CJS !== '.js'
+  );
 
   return resolver([
     // ordering important, decorators before class properties
@@ -19,12 +22,9 @@ module.exports = function (isEsm, withExt) {
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-syntax-top-level-await',
     'babel-plugin-styled-components',
-    rewriteExt && [
-      'babel-plugin-module-extension-resolver',
-      {
-        dstExtension: isEsm ? EXT_ESM : EXT_CJS,
-        srcExtensions: [isEsm ? EXT_ESM : EXT_CJS, '.ts', '.tsx']
-      }
-    ]
+    rewriteExt && ['babel-plugin-module-extension-resolver', {
+      dstExtension: isEsm ? EXT_ESM : EXT_CJS,
+      srcExtensions: [isEsm ? EXT_ESM : EXT_CJS, '.ts', '.tsx']
+    }]
   ]);
 };

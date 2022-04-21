@@ -1,12 +1,12 @@
 const path = require('path');
 
-function importDirect(bin, req) {
+function importDirect (bin, req) {
   console.log(`$ ${bin} ${process.argv.slice(2).join(' ')}`);
 
   return require(req);
 }
 
-function importRelative(bin, req) {
+function importRelative (bin, req) {
   return importDirect(bin, path.join(process.cwd(), 'node_modules', req));
 }
 
