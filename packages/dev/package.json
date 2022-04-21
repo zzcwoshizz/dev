@@ -6,7 +6,7 @@
   "name": "@zzcwoshizz/dev",
   "sideEffects": false,
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "bin": {
     "z-ci-ghact-build": "./scripts/z-ci-ghact-build.mjs",
     "z-dev-build-ts": "./scripts/z-dev-build-ts.mjs",
