@@ -1,5 +1,4 @@
-// samples...
-// var _packageInfo = require("@zzcwoshizz/networks/packageInfo");
-// import { packageInfo as netInfo } from '@zzcwoshizz/networks/packageInfo';
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
 
 export default [];

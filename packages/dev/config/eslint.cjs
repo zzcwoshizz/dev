@@ -1,3 +1,6 @@
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
 // ordering here important (at least from a rule maintenance pov)
 /* eslint-disable sort-keys */
 
@@ -11,19 +14,18 @@ module.exports = {
   },
   ignorePatterns: [
     '**/build/*',
+    '**/build-*/*',
     '**/coverage/*',
     '**/node_modules/*',
-    '.eslintrc.cjs',
-    '.eslintrc.js',
-    '.eslintrc.mjs',
     '.github/**',
-    '.prettierrc.cjs',
     '.vscode/**',
     '.yarn/**',
-    'babel.config.cjs',
-    'jest.config.cjs',
-    'rollup.config.js',
-    'rollup.config.mjs'
+    '/.eslintrc.cjs',
+    '/.eslintrc.js',
+    '/.eslintrc.mjs',
+    '/.prettierrc.cjs',
+    '/babel.config.cjs',
+    '/jest.config.cjs'
   ],
   extends: [
     'eslint:recommended',
@@ -53,16 +55,7 @@ module.exports = {
     extraFileExtensions: ['.cjs', '.mjs'],
     warnOnUnsupportedTypeScriptVersion: false
   },
-  plugins: [
-    '@typescript-eslint',
-    'prettier',
-    'import',
-    'import-newlines',
-    'react-hooks',
-    'simple-import-sort',
-    'jsx-a11y',
-    'sort-destructure-keys'
-  ],
+  plugins: ['@typescript-eslint', 'header', 'prettier', 'import', 'import-newlines', 'react-hooks', 'simple-import-sort', 'jsx-a11y', 'sort-destructure-keys'],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     // required as 'off' since typescript-eslint has own versions
@@ -77,7 +70,7 @@ module.exports = {
     '@typescript-eslint/type-annotation-spacing': 'error',
     'arrow-parens': ['error', 'always'],
     'default-param-last': [0], // conflicts with TS version (this one doesn't allow TS ?)
-    'header/header': 'off',
+    'header/header': [2, 'line', [' Copyright 2023-2023 zc.zhang authors & contributors', ' SPDX-License-Identifier: Apache-2.0'], 2],
     'import-newlines/enforce': 'off',
     'multiline-ternary': 'off',
     'jsx-a11y/anchor-is-valid': 'off',

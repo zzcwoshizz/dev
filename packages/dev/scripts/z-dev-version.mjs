@@ -1,11 +1,18 @@
 #!/usr/bin/env node
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
+import { getPackagesSync } from '@manypkg/get-packages';
 import fs from 'fs';
 import path from 'path';
+import semver from 'semver';
 import yargs from 'yargs';
 
-import execSync from './execSync.mjs';
+import { execSync } from './execute.mjs';
 
-const TYPES = ['major', 'minor', 'patch', 'pre'];
+const { packages, rootPackage } = getPackagesSync(process.cwd());
+
+const TYPES = ['major', 'premajor', 'minor', 'preminor', 'patch', 'prepatch', 'prerelease'];
 
 const [type] = yargs(process.argv.slice(2)).demandCommand(1).argv._;
 
@@ -13,58 +20,23 @@ if (!TYPES.includes(type)) {
   throw new Error(`Invalid version bump "${type}", expected one of ${TYPES.join(', ')}`);
 }
 
-function updateDependencies (dependencies, others, version) {
-  return Object
-    .entries(dependencies)
-    .sort((a, b) => a[0].localeCompare(b[0]))
-    .reduce((result, [key, value]) => {
-      result[key] = others.includes(key) && value !== '*'
-        ? value.startsWith('^')
-          ? `^${version}`
-          : version
-        : value;
-
-      return result;
-    }, {});
-}
-
-function updatePackage (version, others, pkgPath, json) {
-  const updated = Object.keys(json).reduce((result, key) => {
-    if (key === 'version') {
-      result[key] = version;
-    } else if (['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies', 'resolutions'].includes(key)) {
-      result[key] = updateDependencies(json[key], others, version);
-    } else if (key !== 'stableVersion') {
-      result[key] = json[key];
-    }
-
-    return result;
-  }, {});
-
-  fs.writeFileSync(pkgPath, `${JSON.stringify(updated, null, 2)}\n`);
-}
-
 console.log('$ z-dev-version', process.argv.slice(2).join(' '));
 
-execSync(`yarn version ${type === 'pre' ? 'prerelease' : type}`);
+packages
+  .concat(rootPackage)
+  .map((pkg) => {
+    const newVer = semver.inc(pkg.packageJson.version, type);
 
-const rootPath = path.join(process.cwd(), 'package.json');
-const rootJson = JSON.parse(fs.readFileSync(rootPath, 'utf8'));
+    if (newVer) {
+      pkg.packageJson.version = newVer;
+    } else {
+      throw new Error(`Invalid version bump with package ${pkg.packageJson.name}`);
+    }
 
-updatePackage(rootJson.version, [], rootPath, rootJson);
-
-// yarn workspaces does an OOM, manual looping takes ages
-if (fs.existsSync('packages')) {
-  const packages = fs
-    .readdirSync('packages')
-    .map((dir) => path.join(process.cwd(), 'packages', dir, 'package.json'))
-    .filter((pkgPath) => fs.existsSync(pkgPath))
-    .map((pkgPath) => [pkgPath, JSON.parse(fs.readFileSync(pkgPath, 'utf8'))]);
-  const others = packages.map(([, json]) => json.name);
-
-  packages.forEach(([pkgPath, json]) => {
-    updatePackage(rootJson.version, others, pkgPath, json);
+    return pkg;
+  })
+  .forEach((pkg) => {
+    fs.writeFileSync(path.resolve(pkg.dir, 'package.json'), `${JSON.stringify(pkg.packageJson, null, 2)}\n`);
   });
-}
 
 execSync('yarn');

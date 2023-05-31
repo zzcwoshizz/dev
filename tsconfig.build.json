@@ -4,6 +4,7 @@
   },
   "files": [],
   "references": [
-    { "path": "./packages/dev/tsconfig.build.json" }
+    { "path": "./packages/dev/tsconfig.build.json" },
+    { "path": "./packages/lint/tsconfig.build.json" }
   ]
 }

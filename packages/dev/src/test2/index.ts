@@ -1,5 +1,6 @@
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
 import bar from './bar';
 
-export {
-  bar
-};
+export { bar };

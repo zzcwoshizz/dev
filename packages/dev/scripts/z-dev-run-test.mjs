@@ -1,13 +1,9 @@
 #!/usr/bin/env node
-// [object Object]
+// Copyright 2023-2023 zc.zhang authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { importDirect } from './import.cjs';
+import { importDirect } from './import.mjs';
 
-process.env.NODE_OPTIONS = `--experimental-vm-modules${
-  process.env.NODE_OPTIONS
-    ? ` ${process.env.NODE_OPTIONS}`
-    : ''
-}`;
+process.env.NODE_OPTIONS = `--experimental-vm-modules${process.env.NODE_OPTIONS ? ` ${process.env.NODE_OPTIONS}` : ''}`;
 
-importDirect('z-dev-run-test', 'jest-cli/bin/jest');
+await importDirect('z-dev-run-test', 'jest-cli/bin/jest');

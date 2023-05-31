@@ -1,3 +1,6 @@
-export default function bar (): void {
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
+export default function bar(): void {
   console.log('hello world');
 }

@@ -1,1 +1,1 @@
-require('./packages/dev/build/tester.cjs');
+require('./packages/dev/build/cjs/tester.js');

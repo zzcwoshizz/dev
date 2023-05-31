@@ -2,9 +2,13 @@
   "extends": "@zzcwoshizz/dev/config/tsconfig.json",
   "compilerOptions": {
     "composite": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "paths": {
-      "@zzcwoshizz/dev/*": ["dev/src/*"]
-    },
-    "skipLibCheck": true
+      "@zzcwoshizz/dev": ["dev/src"],
+      "@zzcwoshizz/dev/*": ["dev/src/*"],
+      "@zzcwoshizz/lint": ["lint/src"],
+      "@zzcwoshizz/lint/*": ["lint/src/*"]
+    }
   }
 }

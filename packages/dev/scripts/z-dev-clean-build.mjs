@@ -1,28 +1,27 @@
 #!/usr/bin/env node
-import fs from 'fs';
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
+import { getPackagesSync } from '@manypkg/get-packages';
 import path from 'path';
 import rimraf from 'rimraf';
 
-const PKGS = path.join(process.cwd(), 'packages');
+const { packages, rootPackage } = getPackagesSync(process.cwd());
+
+const DIRS = ['build', ...['cjs', 'esm'].map((d) => `build-${d}`), ...['tsbuildinfo', 'eslint.tsbuildinfo', 'build.tsbuildinfo'].map((d) => `tsconfig.${d}`)];
 
 console.log('$ z-dev-clean-build', process.argv.slice(2).join(' '));
 
-function getDirs (dir) {
-  return [path.join(dir, 'build'), path.join(dir, 'build-docs'), path.join(dir, 'tsconfig.tsbuildinfo'), path.join(dir, 'tsconfig.*.tsbuildinfo')];
+function getPaths(dir) {
+  return DIRS.map((p) => path.join(dir, p));
 }
 
-function cleanDirs (dirs) {
-  dirs.forEach((dir) => rimraf.sync(dir));
+function cleanDirs(dirs) {
+  dirs.forEach((d) => rimraf.sync(d));
 }
 
-cleanDirs(getDirs(process.cwd()));
+cleanDirs(getPaths(rootPackage.dir));
 
-if (fs.existsSync(PKGS)) {
-  cleanDirs(
-    fs
-      .readdirSync(PKGS)
-      .map((file) => path.join(PKGS, file))
-      .filter((file) => fs.statSync(file).isDirectory())
-      .reduce((arr, dir) => arr.concat(getDirs(dir)), [])
-  );
-}
+packages.forEach((pkg) => {
+  cleanDirs(getPaths(pkg.dir));
+});

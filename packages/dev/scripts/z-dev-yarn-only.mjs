@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
 if (process.env.npm_execpath.includes('yarn')) {
   process.exit(0);
 }
 
 const blank = ''.padStart(75);
 
-console.error(
-  `${blank}\n   FATAL: The use of yarn is required, install via npm is not supported.   \n${blank}`
-);
+console.error(`${blank}\n   FATAL: The use of yarn is required, install via npm is not supported.   \n${blank}`);
 console.error(`
     Technical explanation: All the projects in the @zzcwoshizz' family use
     yarn workspaces, along with hoisting of dependencies. Currently only

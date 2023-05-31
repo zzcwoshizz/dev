@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
 
-import { importDirect } from './import.cjs';
+import { importDirect } from './import.mjs';
 
-importDirect('tsc', 'typescript/lib/tsc.js');
+await importDirect('tsc', 'typescript/lib/tsc.js');

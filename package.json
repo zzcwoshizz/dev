@@ -1,17 +1,23 @@
 {
+  "author": "zc.zhang",
+  "bugs": "https://github.com/zzcwoshizz/dev/issues",
+  "homepage": "https://github.com/zzcwoshizz/dev#readme",
   "license": "Apache-2.0",
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@4.0.0-rc.42",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzcwoshizz/dev.git"
+  },
   "sideEffects": false,
   "type": "commonjs",
   "workspaces": [
     "packages/*"
   ],
-  "version": "0.3.1",
   "scripts": {
     "build": "z-dev-build-ts",
-    "build:extra": "(cd packages/dev && copyfiles config/* scripts/* build)",
-    "build:release": "z-ci-ghact-build --skip-beta",
+    "build:extra": "(cd packages/dev && copyfiles config/** scripts/** build)",
+    "changeset": "z-exec-changeset",
     "clean": "z-dev-clean-build",
     "lint": "z-dev-run-lint",
     "postinstall": "./packages/dev/scripts/z-dev-yarn-only.mjs",
@@ -22,8 +28,5 @@
   "devDependencies": {
     "@zzcwoshizz/dev": "workspace:packages/dev",
     "copyfiles": "^2.4.1"
-  },
-  "resolutions": {
-    "typescript": "^4.5.5"
   }
 }

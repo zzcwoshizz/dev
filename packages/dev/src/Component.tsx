@@ -1,3 +1,6 @@
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
+
 import React from 'react';
 
 interface Props {
@@ -6,15 +9,16 @@ interface Props {
   label?: string;
 }
 
-function Child ({ children, className, label }: Props): React.ReactElement<Props> {
+function Child({ children, className, label }: Props): React.ReactElement<Props> {
   return (
     <div className={className}>
-      {label || ''}{children}
+      {label || ''}
+      {children}
     </div>
   );
 }
 
-function Component ({ children, className, label }: Props): React.ReactElement<Props> {
+function Component({ children, className, label }: Props): React.ReactElement<Props> {
   const bon = '123';
 
   if (label === bon) {
@@ -31,10 +35,7 @@ function Component ({ children, className, label }: Props): React.ReactElement<P
 
   return (
     <div className={className}>
-      <Child
-        className='child'
-        label={label}
-      >
+      <Child className='child' label={label}>
         {children}
       </Child>
       <Child className='child'>bob</Child>

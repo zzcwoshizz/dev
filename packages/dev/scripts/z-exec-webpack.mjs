@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+// Copyright 2023-2023 zc.zhang authors & contributors
+// SPDX-License-Identifier: Apache-2.0
 
-import execSync from './execSync.mjs';
+import { importDirect } from './import.mjs';
 
-const args = process.argv.slice(2).join(' ');
-
-execSync(`yarn webpack ${args}`);
+await importDirect('webpack', 'webpack-cli/bin/cli.js');
