@@ -17,7 +17,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "bin": {
     "z-ci-ghact-app": "./scripts/z-ci-ghact-app.mjs",
     "z-ci-ghact-release": "./scripts/z-ci-ghact-release.mjs",
