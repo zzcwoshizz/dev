@@ -1,5 +1,11 @@
 # @zzcwoshizz/lint
 
+## 1.0.2
+
+### Patch Changes
+
+- [`2e305fc`](https://github.com/zzcwoshizz/dev/commit/2e305fca1a3d101cc8a4fdea319fd5befb4317ad) Thanks [@zzcwoshizz](https://github.com/zzcwoshizz)! - fix homepage url
+
 ## 1.0.1
 
 ### Patch Changes
