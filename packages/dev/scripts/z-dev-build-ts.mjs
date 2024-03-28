@@ -277,7 +277,7 @@ function sortJson(json) {
 function orderPackageJson(repoPath, dir, json) {
   json.author = 'zc.zhang';
   json.bugs = `https://github.com/${repoPath}/issues`;
-  json.homepage = `https://github.com/${repoPath}`;
+  json.homepage = `https://github.com/${repoPath}#readme`;
   json.license = 'Apache-2.0';
   json.repository = {
     ...(dir ? { directory: dir } : {}),

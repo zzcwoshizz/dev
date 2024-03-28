@@ -3,7 +3,7 @@
   "bugs": "https://github.com/zzcwoshizz/dev/issues",
   "contributors": [],
   "description": "A collection of shared CI scripts and development environment",
-  "homepage": "https://github.com/zzcwoshizz/dev",
+  "homepage": "https://github.com/zzcwoshizz/dev#readme",
   "license": "Apache-2.0",
   "maintainers": [],
   "name": "@zzcwoshizz/lint",
