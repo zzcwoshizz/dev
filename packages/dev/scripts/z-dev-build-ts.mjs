@@ -280,9 +280,8 @@ function orderPackageJson(repoPath, dir, json) {
   json.homepage = `https://github.com/${repoPath}#readme`;
   json.license = 'Apache-2.0';
   json.repository = {
-    ...(dir ? { directory: dir } : {}),
     type: 'git',
-    url: `https://github.com/${repoPath}.git`
+    url: `https://github.com/${repoPath}`
   };
   json.sideEffects = json.sideEffects || false;
 
