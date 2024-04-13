@@ -3,11 +3,11 @@
   "bugs": "https://github.com/zzcwoshizz/dev/issues",
   "homepage": "https://github.com/zzcwoshizz/dev#readme",
   "license": "Apache-2.0",
-  "packageManager": "yarn@4.0.0-rc.42",
+  "packageManager": "yarn@4.1.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/zzcwoshizz/dev.git"
+    "url": "https://github.com/zzcwoshizz/dev"
   },
   "sideEffects": false,
   "type": "commonjs",
