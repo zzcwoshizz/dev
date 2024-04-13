@@ -1,5 +1,11 @@
 # @zzcwoshizz/dev
 
+## 1.1.0
+
+### Minor Changes
+
+- [`b9b1605`](https://github.com/zzcwoshizz/dev/commit/b9b1605f6d2eccb198433ec2eb632e4a2acb4a24) Thanks [@zzcwoshizz](https://github.com/zzcwoshizz)! - change repository format
+
 ## 1.0.2
 
 ### Patch Changes
